@@ -4,10 +4,13 @@ using UnityEngine;
 
 namespace AssemblyCSharp
 {
+    /// <summary>
+    /// The structure of each packet, sent from Tracking Tools.
+    /// </summary>
 	[StructLayout (LayoutKind.Sequential)]
     struct NatNetPkt
 	{
-		public ushort ID;
+        public ushort ID;
 		public ushort nBytes;
 		public uint frame;
 		public uint nMarkerSet;
@@ -19,7 +22,7 @@ namespace AssemblyCSharp
 		public uint nSkeletons;
 		public float latency;
 		public uint timeCode;
-		public Marker[] ringMarkers;
+		public Marker[] ringMarkers; // The markers, which identify the pliers.
 		
 		public void InitMarkerSets ()
 		{
@@ -37,6 +40,7 @@ namespace AssemblyCSharp
 		}
 	}
 
+    /// <summary>The structure of each marker, sent from Tracking Tools.</summary>
 	[StructLayout (LayoutKind.Sequential)]
     struct Marker
 	{
@@ -70,6 +74,7 @@ namespace AssemblyCSharp
 		}
 	}
 
+    /// <summary>The structure of each marker set, sent from Tracking Tools.</summary>
 	struct MarkerSet
 	{
 		public string name;
@@ -82,6 +87,7 @@ namespace AssemblyCSharp
 		}
 	}
 
+    /// <summary>The structure of each rigid body, sent from Tracking Tools.</summary>
 	[StructLayout (LayoutKind.Sequential)]
     struct RigidBody
 	{

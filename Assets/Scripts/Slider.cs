@@ -1,9 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>The script to control the behavior of all Sliders</summary>
 public class Slider : MonoBehaviour, IUIControl
 {
-	public float Min = 0, Max = 10, Curr = 5;
+    /// <summary>The minimum value on the slider.</summary>
+	public float Min = 0;
+    /// <summary>The minimum value on the slider.</summary>
+    public float Max = 10;
+    /// <summary>The minimum value on the slider.</summary>
+    public float Curr = 5;
+
 	public enum SType
 	{
 		Horizontal,
@@ -11,11 +18,11 @@ public class Slider : MonoBehaviour, IUIControl
 		Z		
 	};
 	public SType SliderType = SType.Horizontal;
-	private SliderBall ball;
+	private SliderBall ball; // The moving ball of the slider
 	private float pValue; // The parametric value on the slider
-	private GameObject handle;
-	private Transform ballXForm;
-	private static Transform t = null;
+	private GameObject handle; // The stationary handle of the slider
+	private Transform ballXForm; // The transform of the ball
+	private static Transform t = null; // The local, to hold the value of the parent transform of the sliderball.
 	
 	public static void SetTransform (Transform trans)
 	{
@@ -43,6 +50,7 @@ public class Slider : MonoBehaviour, IUIControl
 		clampBallPos ();
 	}		
 	
+    /// <summary>Clamps the position of the ball to the limits of the slider.</summary>
 	private void clampBallPos ()
 	{
 		Vector3 pos = ballXForm.localPosition;

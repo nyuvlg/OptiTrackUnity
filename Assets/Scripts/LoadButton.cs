@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Xml;
 
+/// <summary>The script attached to any button, which loads the data from a file.</summary>
 public class LoadButton : Button
 {
 	public override void OnTriggerEnter (Collider other)
